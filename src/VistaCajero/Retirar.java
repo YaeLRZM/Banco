@@ -12,6 +12,8 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -26,7 +28,12 @@ public class Retirar extends javax.swing.JPanel {
      */
     public Retirar() {
         initComponents();
+        label.setText(obtenerFechaActual());
     }
+    public String obtenerFechaActual() {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    return sdf.format(new Date());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,18 +49,15 @@ public class Retirar extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtBanco = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -61,7 +65,7 @@ public class Retirar extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Retirar");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -71,12 +75,12 @@ public class Retirar extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 153, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Enter");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(204, 204, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -86,55 +90,31 @@ public class Retirar extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 190, -1));
-
-        jLabel3.setText("Seleccione el banco");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
-
-        txtBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BBVA ", "SANTANDER ", "STP ", " " }));
-        jPanel2.add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 190, -1));
-
-        jLabel5.setText("NIP");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
 
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionActionPerformed(evt);
             }
         });
-        jPanel2.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 190, -1));
+        jPanel2.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 190, -1));
 
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 190, -1));
+        jPanel2.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 190, -1));
 
         jLabel6.setText("Cantidad ");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
         jLabel7.setText("Descripcion");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Nombre");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
-
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 190, 20));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(204, 0, 51));
         jLabel1.setText("*Nota: Solo se puede retirar acuentas BBVA");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(0, 102, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -144,7 +124,18 @@ public class Retirar extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, -1));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 190, -1));
+
+        jLabel8.setText("Correo");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
+        jPanel2.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 190, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -168,10 +159,6 @@ public class Retirar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
@@ -183,6 +170,10 @@ public class Retirar extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         generarPDF();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 private void generarPDF() {
     // Crear un documento
     Document documento = new Document();
@@ -204,11 +195,10 @@ private void generarPDF() {
         Paragraph titulo = new Paragraph("Retiro", fontTitulo);
         titulo.setAlignment(Element.ALIGN_CENTER);
         documento.add(titulo);
-
-        documento.add(new Paragraph("\nBanco: " + txtBanco.getSelectedItem(), fontNormal));
-        documento.add(new Paragraph("Cantidad: " + txtCantidad.getText(), fontNormal));
+        
+        documento.add(new Paragraph("\nCantidad: " + txtCantidad.getText(), fontNormal));
         documento.add(new Paragraph("Descripción: " + txtDescripcion.getText(), fontNormal));
-
+        documento.add(new Paragraph("Correo: " + txtCorreo.getText(), fontNormal));
         documento.add(new Paragraph("\nGracias por su confianza.", fontNormal));
 
         // Mostrar mensaje de confirmación
@@ -236,17 +226,14 @@ private void generarPDF() {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> txtBanco;
+    private javax.swing.JLabel label;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDescripcion;
     // End of variables declaration//GEN-END:variables
 }

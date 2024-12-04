@@ -4,6 +4,11 @@
  */
 package Vista;
 
+import Funciones.*;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import java.sql.SQLException;
+
 /**
  *
  * @author yael
@@ -29,10 +34,12 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtTarjeta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtClave = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,41 +51,51 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Blanco 6 Paneles Cómic.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-230, 10, 630, 300));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-230, 30, 630, 300));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtTarjetaActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 190, 30));
+        jPanel2.add(txtTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ingrese la clave de tarjeta");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(204, 204, 0));
-        jButton2.setText("Aceptar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
+        jLabel3.setText("Ingrese la clave");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 190, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 510, 420));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Numero de tarjeta");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+
+        txtClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClaveActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 190, 30));
+
+        jButton3.setBackground(new java.awt.Color(204, 204, 0));
+        jButton3.setText("Aceptar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 510, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,15 +107,65 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTarjetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtTarjetaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    this.dispose();
-        MenuModificado ventana = new MenuModificado();
-        ventana.setVisible(true);     // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClaveActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+  // Verificar si el campo de tarjeta o clave está vacío
+    if (txtTarjeta.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar el número de tarjeta", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    } else if (txtClave.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar la clave", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    } else {
+        // Crear una instancia de la conexión y del controlador
+        clsBD_Conexion conexion = new clsBD_Conexion();
+        ControladorLogin controladorLogin = new ControladorLogin(conexion);
+
+        try {
+            // Intentar conectar con la base de datos
+            conexion.conectarBD();
+
+            // Obtener los valores ingresados
+            String numeroTarjeta = txtTarjeta.getText();
+            String claveTarjeta;
+
+            // Verificar si el campo de clave es JPasswordField
+            if (txtClave instanceof javax.swing.JPasswordField) {
+                // Si es JPasswordField, obtener la clave como una cadena
+                char[] claveCharArray = ((javax.swing.JPasswordField) txtClave).getPassword();
+                claveTarjeta = new String(claveCharArray); // Convertir a String
+            } else {
+                // Si es un JTextField, obtener el texto directamente
+                claveTarjeta = txtClave.getText();
+            }
+
+            // Validar el login con el controlador
+            if (controladorLogin.validarLogin(numeroTarjeta, claveTarjeta)) {
+                JOptionPane.showMessageDialog(this, "¡Login exitoso!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                // Redirigir a la ventana MenuModificado
+                MenuModificado menu = new MenuModificado();
+                menu.setVisible(true);
+                this.dispose(); // Cierra el formulario actual
+            } else {
+                JOptionPane.showMessageDialog(this, "Número de tarjeta o clave incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            // Mostrar el mensaje de error en caso de SQL Exception
+            JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        } catch (Exception e) {
+            // Manejar cualquier otra excepción
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,12 +204,14 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtClave;
+    private javax.swing.JTextField txtTarjeta;
     // End of variables declaration//GEN-END:variables
 }

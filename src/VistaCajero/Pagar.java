@@ -12,6 +12,8 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -26,7 +28,12 @@ public class Pagar extends javax.swing.JPanel {
      */
     public Pagar() {
         initComponents();
+        label.setText(obtenerFechaActual());
     }
+    public String obtenerFechaActual() {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    return sdf.format(new Date());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,19 +49,16 @@ public class Pagar extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        txtCuenta = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtFactura = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        txtDescripcion = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         txtImporte = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        txtDescripcion1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -62,7 +66,7 @@ public class Pagar extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Pagar");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -89,61 +93,31 @@ public class Pagar extends javax.swing.JPanel {
         });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
-        txtCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCuentaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 190, -1));
-
         jLabel4.setText("Tipo de factura");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         txtFactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Luz", "Agua ", "Telefono ", "Internet", " " }));
-        jPanel2.add(txtFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 190, -1));
+        jPanel2.add(txtFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 190, -1));
 
-        jLabel5.setText("Numero de cuenta");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
-
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 190, -1));
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 190, -1));
 
         txtImporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtImporteActionPerformed(evt);
             }
         });
-        jPanel2.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 190, -1));
+        jPanel2.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 190, -1));
 
         jLabel6.setText("Importe");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
-        jLabel7.setText("Descripcion");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
-
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 190, -1));
-
-        jLabel10.setText("Nombre");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
-
-        txtApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 190, -1));
-
-        jLabel13.setText("Apellido");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, -1, -1));
+        jLabel7.setText("Correo");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(0, 102, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -154,6 +128,17 @@ public class Pagar extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, -1));
+
+        txtDescripcion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescripcion1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtDescripcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 190, -1));
+
+        jLabel8.setText("Descripcion");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+        jPanel2.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,29 +162,21 @@ public class Pagar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCuentaActionPerformed
-
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtImporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImporteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtImporteActionPerformed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         generarPDF();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtDescripcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcion1ActionPerformed
 private void generarPDF() {
     // Crear un documento
     Document documento = new Document();
@@ -222,12 +199,11 @@ private void generarPDF() {
         titulo.setAlignment(Element.ALIGN_CENTER);
         documento.add(titulo);
         
-        documento.add(new Paragraph("Nombre: " + txtNombre.getText(), fontNormal));
-        documento.add(new Paragraph("Apellido: " + txtApellido.getText(), fontNormal));
-        documento.add(new Paragraph("\nBanco: " + txtFactura.getSelectedItem(), fontNormal));
-        documento.add(new Paragraph("Cantidad: " + txtCuenta.getText(), fontNormal));
+
+        documento.add(new Paragraph("/nTipo de factura: " + txtFactura.getSelectedItem(), fontNormal));
         documento.add(new Paragraph("Importe: " + txtImporte.getText(), fontNormal));
-        documento.add(new Paragraph("Descripción: " + txtDescripcion.getText(), fontNormal));
+        documento.add(new Paragraph("Descripción: " + txtCorreo.getText(), fontNormal));
+        documento.add(new Paragraph("Correo: " + txtCorreo.getText(), fontNormal));
         documento.add(new Paragraph("\nGracias por su confianza.", fontNormal));
 
         // Mostrar mensaje de confirmación
@@ -254,19 +230,16 @@ private void generarPDF() {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCuenta;
-    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JLabel label;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDescripcion1;
     private javax.swing.JComboBox<String> txtFactura;
     private javax.swing.JTextField txtImporte;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
